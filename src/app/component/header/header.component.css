@@ -1,0 +1,29 @@
+nav {
+    background-color: #2d344e;
+}
+
+li {
+    font-size: xx-small;
+    padding-bottom: 0px;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-right: white 1px solid;
+}
+
+li:last-child {
+    border-right: none; /* Elimina la línea de separación en el último elemento */
+}
+
+ul {
+    width: 40%;
+}
+
+.btn {
+    font-size: xx-small;
+    margin-top: 9%;
+}
+
+.nav-link {
+    color: white;
+    cursor: pointer;
+}

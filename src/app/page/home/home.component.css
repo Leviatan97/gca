@@ -1,3 +1,11 @@
 .body {
     background-color: #2d344e;
+    height: 654px;
+}
+
+.col-lg-8.col-md-8 {
+    height: 550px;
+}
+app-header {
+    margin-top: 2%;
 }

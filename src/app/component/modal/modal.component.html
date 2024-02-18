@@ -1,0 +1,82 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Crear nuevo</button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Crear Usuario</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="fb">
+        <div
+            class="row g-2"
+        >
+            <div class="col-6">
+              <label>Nombre</label>
+              <div class="input-group flex-nowrap">
+                <input 
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre" 
+                    aria-label="Nombre"
+                    formControlName="name"
+                >
+            </div>
+            </div>
+            <div class="col-6">
+                <label>Categoria</label>
+                <select class="form-select" formControlName="category">
+                    <option value="Operador">Operador</option>
+                    <option value="Logistico">Logistico</option>
+                    <option value="Jefe de Area">Jefe de Area</option>
+                    <option value="Administrador">Administrador</option>
+                  </select>
+            </div>
+            <div class="col-6">
+              <label>Dirección</label>
+              <div class="input-group flex-nowrap">
+                <input 
+                  type="text"
+                  class="form-control"
+                  placeholder="Dirección"
+                  aria-describedby="addon-wrapping"
+                  formControlName="Address"
+                >
+            </div>
+            </div>
+            <div class="col-6">
+                <label>Foto</label>
+                <select class="form-select" formControlName="photo">
+                    <option value="person1">Persona 1</option>
+                    <option value="person2">Persona 2</option>
+                    <option value="person3">Persona 3</option>
+                    <option value="person4">Persona 4</option>
+                    <option value="person5">Persona 5</option>
+                    <option value="person6">Persona 6</option>
+                  </select>
+            </div>
+            <div class="col-12">
+                <label>Vehiculo</label>
+                <select class="form-select" formControlName="vehicle">
+                    <option selected>Seleccione...</option>
+                    <option value="moto">Moto</option>
+                    <option value="carro">Carro</option>
+                    <option value="grua">Grua</option>
+                    <option value="ambulancia">Ambulancia</option>
+                  </select>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button 
+                class="btn btn-primary"
+                type="button"
+                (click)="createPerson()"
+                [disabled]="!fb.valid"
+              >
+                Crear
+              </button>
+            </div>
+        </div>
+    </form>
+  </div>
+</ng-template>

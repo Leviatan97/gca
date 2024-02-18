@@ -1,7 +1,71 @@
-<ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-</ul>
+<div class="card">
+    <div class="card-body">
+        <h4 class="display-6">LISTADO DE LOCALIZACIONES</h4>
+        <p class="card-text">Listados de dispositivos que reportan su posición</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngIf="dataList.length > 0">
+        <li 
+            class="list-group-item" 
+            *ngFor="let item of dataList" 
+            (click)="selectPerson(item.id)"
+            [ngClass]="{'selected': id == item.id}"
+        >
+            <div
+                class="row g-2"
+            >
+                <div class="col text-sm-start">
+                    <label>{{item.name}}</label>
+                    <p>
+                        {{item.category}} <br> <br>
+                        longitud: {{item.coordinates.longitude}} <br>
+                        latitud: {{item.coordinates.latitude}} <br>
+                        altitud: {{item.coordinates.height}}
+                    </p>
+                </div>
+                <div class="col text-sm-end" [ngSwitch]="item.vehicle">
+                    <div
+                        class="row g-2"
+                    >
+                        <div class="col-8 detail">
+                            <p>
+                                {{item.address}} <br>
+                                Tipo de vehiculo: <br>
+                                <b 
+                                    [ngClass]="{
+                                    'text-success': item.isActive,
+                                    'text-danger': !item.isActive
+                                    }"
+                                >
+                                    {{item.isActive ? 'Activo': 'Inactivo'}}
+                                </b>
+                            </p>
+                        </div>
+                        <div class="col-4 img-container">
+                            <div [ngSwitch]="item.photo">  
+                                <img class="photo" *ngSwitchCase="'person1'" src="assets/img/person1.jpg" alt="">
+                                <img class="photo" *ngSwitchCase="'person2'" src="assets/img/person2.jpg" alt="">
+                                <img class="photo" *ngSwitchCase="'person3'" src="assets/img/person3.jpg" alt="">
+                                <img class="photo" *ngSwitchCase="'person4'" src="assets/img/person4.jpg" alt="">
+                                <img class="photo" *ngSwitchCase="'person5'" src="assets/img/person5.jpg" alt="">
+                                <img class="photo" *ngSwitchDefault src="assets/img/person6.jpg" alt="">
+                            </div>
+                            
+                            <img class="img-content"src="assets/img/moto.svg" *ngSwitchCase="'moto'">
+                            <img class="img-content" src="assets/img/ambulancia.svg" *ngSwitchCase="'ambulancia'">
+                            <img class="img-content" src="assets/img/carro.svg" *ngSwitchCase="'carro'">
+                            <img class="img-content" src="assets/img/grua.svg" *ngSwitchCase="'grua'">
+                            <img class="img-content"src="assets/img/moto.svg" *ngSwitchDefault>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+    <div class="card-footer text-sm-end">
+        <app-modal (dataPerson)="createPerson($event)"></app-modal>
+    </div>
+</div>
+

@@ -1,15 +1,20 @@
 <div class="body">
-    <app-header></app-header>
-
+    <app-header (valueResponse)="optionSelect($event)"></app-header>
     <div
-        class="container"
+        class="row mx-2"
+        [ngSwitch]="option"
     >
-    <div
-        class="row"
-    >
-        <div class="col-lg-8 col-md-8"><app-map></app-map></div>
-        <div class="col-lg-4 col-md-4"><app-list></app-list></div>
-    </div>
+        <div class="col-lg-8 col-md-8" *ngSwitchCase="'Home'"><app-map></app-map></div>
+        <div class="col-lg-8 col-md-8" *ngSwitchCase="'Page1'"><app-page1></app-page1></div>
+        <div class="col-lg-8 col-md-8" *ngSwitchCase="'Page2'"><app-page2></app-page2></div>
+        <div class="col-lg-8 col-md-8" *ngSwitchCase="'Page3'"><app-page3></app-page3></div>
+        <div class="col-lg-4 col-md-4">
+            <app-list 
+                [dataList]="list" 
+                (dataPerson)="createPerson($event)"
+                (idPerson)="getPerson($event)"
+            ></app-list>
+        </div>
     </div>
     
 </div>

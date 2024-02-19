@@ -39,5 +39,6 @@ export class ModalComponent implements OnInit {
     this.dataPerson.emit(this.fb.value)
     this.modalRef?.hide()
     this.fb.reset()
+    window.location.reload()
   }
 }

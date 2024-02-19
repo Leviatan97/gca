@@ -18,7 +18,7 @@ export class ListComponent {
       id: id.toString(),
       name: data.name,
       category: data.category,
-      Address: data.Address,
+      address: data.Address,
       photo: data.photo,
       vehicle: data.vehicle
     }

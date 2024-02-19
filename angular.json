@@ -16,6 +16,7 @@
             "outputPath": "dist/prueba-gca",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "googleMapApiKey": "AIzaSyB9k_qt7wzmJCI4hCcdfnKcfIC7nzmTJ7I",
             "polyfills": [
               "zone.js"
             ],

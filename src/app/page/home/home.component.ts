@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   option: any = 'Home';
   list: any = []
+  markers: any[] = []; 
 
   constructor(private gcaService: GcaServiceService) {}
 
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   getList() {
     this.gcaService.getSalesman().subscribe((data: any) => {
       this.list = data;
+      this.markers = this.getCoordinates(data)
     })
   }
 
@@ -35,7 +37,23 @@ export class HomeComponent implements OnInit {
 
   getPerson(id: any) {
     this.gcaService.getPerson(id).subscribe((data: any) => {
-      console.log(data)
+      let coord = {
+        lat: data.coordinates.latitude,
+        lng: data.coordinates.longitude,
+        icon: 'assets/img/pinselected.svg'
+      }
+      this.markers = []
+      this.markers.push(coord)
+    })
+  }
+
+  getCoordinates(data: any) {
+    return data.map((dta: any) => {
+      return {
+        lat: dta.coordinates.latitude,
+        lng: dta.coordinates.longitude,
+        icon: 'assets/img/pinselected.svg'
+      }
     })
   }
 }

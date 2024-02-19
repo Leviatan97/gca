@@ -42,6 +42,7 @@ li.selected {
 .list-group {
     max-height: 430px;
     overflow-y: auto;
+    
 }
 
 .photo {
@@ -73,4 +74,30 @@ li.selected {
 p {
     font-size: xx-small;
     color: #539ac9;
+}
+
+@media(min-width: 1700px) {
+    .img-container .img-content{
+        bottom: 1.15em;
+        right: 2.8em;
+        width: 35px;
+    }
+
+    .detail {
+        padding-right: 5%;
+        padding-top: 25%;
+    }
+}
+
+@media(min-width: 2000px) {
+    .img-container .img-content{
+        bottom: 1em;
+        right: 2.8em;
+        width: 35px;
+    }
+
+    .detail {
+        padding-right: 0%;
+        padding-top: 20%;    
+    }
 }

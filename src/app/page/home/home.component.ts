@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
       this.isLoading = false;
       this.list = data;
       this.markers = this.getCoordinates(data)
+    },(error) => {
+      this.isLoading = false;
     })
   }
 
@@ -37,6 +39,8 @@ export class HomeComponent implements OnInit {
     this.gcaService.createSalesman(data).subscribe((data: any) => {
       this.isLoading = false;
       console.log(data)
+    },(error: any) => {
+      this.isLoading = false;
     })
   }
 
@@ -51,6 +55,8 @@ export class HomeComponent implements OnInit {
       }
       this.markers = []
       this.markers.push(coord)
+    },(error: any) =>{
+      this.isLoading = false;
     })
   }
 

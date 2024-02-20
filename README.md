@@ -1,27 +1,14 @@
-# PruebaGca
+Explicación:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+El proyecto fue desarrollado con 2 modulos Page y Component.
 
-## Development server
+En el modulo de page es donde se visualiza la pagina la cual llama los componente del modulo Component, en ella esta estructurada con los siguientes componentes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- header
+- lista
+- mapa
 
-## Code scaffolding
+Cada componente tiene su logica con la finalidad de poder realizar buen mantenimiento a la aplicación.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para poder listar las personas se consume el servicio desde la page y esta le envia la información al componente lista
+Para poder crear un usuario el componente lista llama al componente modal el cual contiene el formulario para la creación de usuarios, se llenan los datos y luego el componente modal se lo envia al componente lista y el componente lista se lo envia a la page la cual realiza la petición de creación de usuario, una vez sea creado el usuario, la aplicación se recarga para mostrar la lista completa.

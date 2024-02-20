@@ -9,6 +9,7 @@ import { Page3Component } from './page3/page3.component';
 import { ModalComponent } from './modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
@@ -21,7 +22,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     Page1Component,
     Page2Component,
     Page3Component,
-    ModalComponent
+    ModalComponent,
+    LoadingComponent
   ],
   exports: [
     ListComponent,
@@ -30,7 +32,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     Page1Component,
     Page2Component,
     Page3Component,
-    ModalComponent
+    ModalComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,

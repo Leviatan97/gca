@@ -10,7 +10,8 @@ export class HomeComponent implements OnInit {
 
   option: any = 'Home';
   list: any = []
-  markers: any[] = []; 
+  markers: any[] = [];
+  isLoading: boolean = false;
 
   constructor(private gcaService: GcaServiceService) {}
 
@@ -23,20 +24,26 @@ export class HomeComponent implements OnInit {
   }
 
   getList() {
+    this.isLoading = true;
     this.gcaService.getSalesman().subscribe((data: any) => {
+      this.isLoading = false;
       this.list = data;
       this.markers = this.getCoordinates(data)
     })
   }
 
   createPerson(data: any) {
+    this.isLoading = true;
     this.gcaService.createSalesman(data).subscribe((data: any) => {
+      this.isLoading = false;
       console.log(data)
     })
   }
 
   getPerson(id: any) {
+    this.isLoading = true;
     this.gcaService.getPerson(id).subscribe((data: any) => {
+      this.isLoading = false;
       let coord = {
         lat: data.coordinates.latitude,
         lng: data.coordinates.longitude,

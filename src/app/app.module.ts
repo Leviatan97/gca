@@ -10,6 +10,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps'
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +23,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
     HttpClientModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
